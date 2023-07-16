@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://localhost:8080/soap/v1/books" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="App.Http.Controllers.BookController" targetNamespace="http://localhost:8080/soap/v1/books">
+  <types>
+    <xsd:schema targetNamespace="http://localhost:8080/soap/v1/books">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+    </xsd:schema>
+  </types>
+  <portType name="App.Http.Controllers.BookControllerPort">
+    <operation name="year">
+      <input message="tns:yearIn"/>
+      <output message="tns:yearOut"/>
+    </operation>
+    <operation name="details">
+      <input message="tns:detailsIn"/>
+    </operation>
+  </portType>
+  <binding name="App.Http.Controllers.BookControllerBinding" type="tns:App.Http.Controllers.BookControllerPort">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="year">
+      <soap:operation soapAction="http://localhost:8080/soap/v1/books#year"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8080/soap/v1/books"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8080/soap/v1/books"/>
+      </output>
+    </operation>
+    <operation name="details">
+      <soap:operation soapAction="http://localhost:8080/soap/v1/books#details"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8080/soap/v1/books"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8080/soap/v1/books"/>
+      </output>
+    </operation>
+  </binding>
+  <message name="yearIn">
+    <part name="id" type="xsd:string"/>
+  </message>
+  <message name="yearOut">
+    <part name="return" type="xsd:anyType"/>
+  </message>
+  <message name="detailsIn">
+    <part name="name" type="xsd:anyType"/>
+  </message>
+  <service name="App.Http.Controllers.BookControllerService">
+    <port name="App.Http.Controllers.BookControllerPort" binding="tns:App.Http.Controllers.BookControllerBinding">
+      <soap:address location="http://localhost:8080/soap/v1/books"/>
+    </port>
+  </service>
+</definitions>

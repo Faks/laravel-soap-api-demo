@@ -1,0 +1,128 @@
+{
+	"info": {
+		"_postman_id": "5ffdd9b2-5736-4a9d-bf6d-c32abec46467",
+		"name": "Laravel Soap API Demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5663057"
+	},
+	"item": [
+		{
+			"name": "demos",
+			"item": [
+				{
+					"name": "hello",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:dem=\"http://localhost:8080/soap/v1/demos\">\r\n    <soapenv:Header/>\r\n    <soapenv:Body>\r\n        <dem:hello soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\"/>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{APP_URL}}/demos#hello",
+							"host": [
+								"{{APP_URL}}"
+							],
+							"path": [
+								"demos"
+							],
+							"hash": "hello"
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "books",
+			"item": [
+				{
+					"name": "year",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:book=\"http://localhost:8080/soap/v1/books\">\r\n    <soapenv:Header/>\r\n    <soapenv:Body>\r\n        <book:year soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\r\n            <id xsi:type=\"xsd:string\">5409</id>\r\n        </book:year>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{APP_URL}}/books#year",
+							"host": [
+								"{{APP_URL}}"
+							],
+							"path": [
+								"books"
+							],
+							"hash": "year"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "details",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:book=\"http://localhost:8080/soap/v1/books\">\r\n    <soapenv:Header/>\r\n    <soapenv:Body>\r\n        <book:details soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\r\n            <name xsi:type=\"xsd:anyType\">\r\n                <title>Project Management 101</title>\r\n            </name>\r\n        </book:details>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{APP_URL}}/books#details",
+							"host": [
+								"{{APP_URL}}"
+							],
+							"path": [
+								"books"
+							],
+							"hash": "details"
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "APP_URL",
+			"value": "http://localhost:8080/soap/v1",
+			"type": "string"
+		}
+	]
+}
